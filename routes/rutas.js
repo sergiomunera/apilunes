@@ -1,48 +1,36 @@
 
 import express from 'express'
+import { ControladorHabitaciones } from '../controllers/ControladorHabitacion.js'
+import { ControladorReservas } from '../controllers/ControladorReservas.js'
+
+// Para poder llamar al controlador debo crear un objeto de la clase controlador habitacion
+// Para poder llamar al controlador debo crear un objeto de la clase controlador reservas
+
+let controladorHabitacion = new ControladorHabitaciones();
+let controladorReservas = new ControladorReservas();
 
 export let rutas = express.Router()
 
 // habitaciones
 
-rutas.post('/api/habitaciones', function (req, res) {
-    res.send('Se esta guardando una habitacion')
-})
+rutas.post('/api/habitaciones', controladorHabitacion.registrarHabitacion)
 
-rutas.get('/api/habitacion', function (req, res) {
-    res.send('Se esta buscando una habitacion')
-})
+rutas.get('/api/habitacion', controladorHabitacion.buscarHabitacionPorId)
 
-rutas.get('/api/habitaciones', function (req, res) {
-    res.send('Se estan buscando todas las habitaciones')
-})
+rutas.get('/api/habitaciones', controladorHabitacion.buscarHabitacion)
 
-rutas.put('/api/habitaciones', function (req, res) {
-    res.send('Se esta cambiando una habitacion')
-})
+rutas.put('/api/habitaciones', controladorHabitacion.modificarHabitacion)
 
-rutas.delete('/api/habitaciones', function (req, res) {
-    res.send('Se esta borrando una habitacion')
-})
+rutas.delete('/api/habitaciones', controladorHabitacion.borrarHabitacion)
 
 // reservas
 
-rutas.post('/api/reservas', function (req, res) {
-    res.send('Se esta guardando una reserva')
-})
+rutas.post('/api/reservas', controladorReservas.registrarReserva)
 
-rutas.get('/api/reserva', function (req, res) {
-    res.send('Se esta buscando una reserva')
-})
+rutas.get('/api/reserva', controladorReservas.buscarReservaPorId)
 
-rutas.get('/api/reservas', function (req, res) {
-    res.send('Se estan buscando todas las reservas')
-})
+rutas.get('/api/reservas', controladorReservas.buscarReserva)
 
-rutas.put('/api/reservas', function (req, res) {
-    res.send('Se esta cambiando una reserva')
-})
+rutas.put('/api/reservas', controladorReservas.modificarReserva)
 
-rutas.delete('/api/reservas', function (req, res) {
-    res.send('Se esta borrando una reserva')
-})
+rutas.delete('/api/reservas', controladorReservas.borrarReserva)
