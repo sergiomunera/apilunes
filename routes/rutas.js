@@ -15,22 +15,22 @@ export let rutas = express.Router()
 
 rutas.post('/api/habitaciones', controladorHabitacion.registrarHabitacion)
 
-rutas.get('/api/habitacion', controladorHabitacion.buscarHabitacionPorId)
+rutas.get('/api/habitacion/:id', controladorHabitacion.buscarHabitacionPorId)
 
 rutas.get('/api/habitaciones', controladorHabitacion.buscarHabitacion)
 
-rutas.put('/api/habitaciones', controladorHabitacion.modificarHabitacion)
+rutas.put('/api/habitaciones/:id', controladorHabitacion.modificarHabitacion)
 
-rutas.delete('/api/habitaciones', controladorHabitacion.borrarHabitacion)
+rutas.delete('/api/habitaciones/:id', controladorHabitacion.borrarHabitacion)
 
 // reservas
 
 rutas.post('/api/reservas', controladorReservas.registrarReserva)
 
-rutas.get('/api/reserva', controladorReservas.buscarReservaPorId)
+rutas.get('/api/reserva/:id', controladorReservas.buscarReservaPorId)
 
 rutas.get('/api/reservas', controladorReservas.buscarReserva)
 
-rutas.put('/api/reservas', controladorReservas.modificarReserva)
+rutas.put('/api/reservas/:id', controladorReservas.modificarReserva)
 
-rutas.delete('/api/reservas', controladorReservas.borrarReserva)
+rutas.delete('/api/reservas/:id', controladorReservas.borrarReserva)
